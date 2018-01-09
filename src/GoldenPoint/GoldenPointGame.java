@@ -1,6 +1,5 @@
 package GoldenPoint;
 import java.awt.GridLayout;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,13 +7,13 @@ import javax.swing.*;
 
 public class GoldenPointGame {
 	
-	double G;
+	double G = 0;
 	public JFrame jf;
 	public JLabel jl,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15;
 	public JLabel jlScore,jlText,Gis, GPoint;
 	public JPanel jpLabel,jpText,GPanel;
 	public JTextField t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15;
-	public JButton jb;
+	public JButton jb,reset;
 	
 	public GoldenPointGame()
 	{
@@ -26,11 +25,10 @@ public class GoldenPointGame {
 		jpLabel = new JPanel();
 		jpText = new JPanel();
 		jb = new JButton("计算");
+		reset = new JButton("重置");
 		jlScore = new JLabel("分数：",JLabel.CENTER);
 		jlText = new JLabel("输入：",JLabel.CENTER);
 		jl.setFont(new   java.awt.Font("Dialog",   1,   20));
-		jb.setSize(30, 30);
-
 		
 		jf.getContentPane().setLayout(new GridLayout(5,0));
 		jf.add(jl);
@@ -41,6 +39,7 @@ public class GoldenPointGame {
 		
 		GPanel.add(Gis);
 		GPanel.add(GPoint);
+		GPanel.add(reset);
 		Gis.setFont(new   java.awt.Font("Dialog",   1,   15));
 	
 		jpText.setLayout(new GridLayout(0,16));
@@ -137,6 +136,11 @@ public class GoldenPointGame {
 				for (int i = 0 ; i < txs.length ; i++)
 				{
 					sum += txs[i];
+					if (txs[i] >= 100 || txs[i] <= 1)
+					{
+						JOptionPane.showMessageDialog(null,"请输入0-100之间的有理数(不包括0或100)");
+						return;
+					}
 				}
 				ave = sum/15;
 				G = ave * 0.618;
@@ -197,6 +201,49 @@ public class GoldenPointGame {
 				s13.setText(String.valueOf(scores[12]));
 				s14.setText(String.valueOf(scores[13]));
 				s15.setText(String.valueOf(scores[14]));
+				
+				
+				
+			}
+		});
+		
+		reset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				GPoint.setText(String.valueOf(0));
+				
+			
+				s1.setText(String.valueOf(0));
+				s2.setText(String.valueOf(0));
+				s3.setText(String.valueOf(0));
+				s4.setText(String.valueOf(0));
+				s5.setText(String.valueOf(0));
+				s6.setText(String.valueOf(0));
+				s7.setText(String.valueOf(0));
+				s8.setText(String.valueOf(0));
+				s9.setText(String.valueOf(0));
+				s10.setText(String.valueOf(0));
+				s11.setText(String.valueOf(0));
+				s12.setText(String.valueOf(0));
+				s13.setText(String.valueOf(0));
+				s14.setText(String.valueOf(0));
+				s15.setText(String.valueOf(0));
+				
+				t1.setText("");
+				t2.setText("");
+				t3.setText("");
+				t4.setText("");
+				t5.setText("");
+				t6.setText("");
+				t7.setText("");
+				t8.setText("");
+				t9.setText("");
+				t10.setText("");
+				t11.setText("");
+				t12.setText("");
+				t13.setText("");
+				t14.setText("");
+				t15.setText("");
 				
 				
 				
