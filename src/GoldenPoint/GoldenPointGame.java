@@ -2,6 +2,8 @@ package GoldenPoint;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.*;
 
@@ -115,6 +117,48 @@ public class GoldenPointGame {
 			public void actionPerformed(ActionEvent e) {
 				Double[] txs = new Double[15];
 				
+				if(t1.getText().trim().length() == 0
+						||t2.getText().trim().length() == 0
+						||t3.getText().trim().length() == 0
+						||t4.getText().trim().length() == 0
+						||t5.getText().trim().length() == 0
+						||t6.getText().trim().length() == 0
+						||t7.getText().trim().length() == 0
+						||t8.getText().trim().length() == 0
+						||t9.getText().trim().length() == 0
+						||t10.getText().trim().length() == 0
+						||t11.getText().trim().length() == 0
+						||t12.getText().trim().length() == 0
+						||t13.getText().trim().length() == 0
+						||t14.getText().trim().length() == 0
+						||t15.getText().trim().length() == 0)
+				{
+					JOptionPane.showMessageDialog(null, "未完全输入！");
+					return;
+				}
+				
+				if(!isNumeric(t1.getText())
+						||!isNumeric(t2.getText())
+						||!isNumeric(t3.getText())
+						||!isNumeric(t4.getText())
+						||!isNumeric(t5.getText())
+						||!isNumeric(t6.getText())
+						||!isNumeric(t7.getText())
+						||!isNumeric(t8.getText())
+						||!isNumeric(t9.getText())
+						||!isNumeric(t10.getText())
+						||!isNumeric(t11.getText())
+						||!isNumeric(t12.getText())
+						||!isNumeric(t13.getText())
+						||!isNumeric(t14.getText())
+						||!isNumeric(t15.getText())
+						)
+				{
+					JOptionPane.showMessageDialog(null, "请输入数字！");
+					return;
+				}
+				
+				
 				txs[0] = Double.parseDouble(t1.getText());
 				txs[1] = Double.parseDouble(t2.getText());
 				txs[2] = Double.parseDouble(t3.getText());
@@ -130,7 +174,6 @@ public class GoldenPointGame {
 				txs[12] = Double.parseDouble(t13.getText());
 				txs[13] = Double.parseDouble(t14.getText());
 				txs[14] = Double.parseDouble(t15.getText());
-				
 				
 				double sum = 0,ave;
 				for (int i = 0 ; i < txs.length ; i++)
@@ -202,7 +245,21 @@ public class GoldenPointGame {
 				s14.setText(String.valueOf(scores[13]));
 				s15.setText(String.valueOf(scores[14]));
 				
-				
+				t1.setText("");
+				t2.setText("");
+				t3.setText("");
+				t4.setText("");
+				t5.setText("");
+				t6.setText("");
+				t7.setText("");
+				t8.setText("");
+				t9.setText("");
+				t10.setText("");
+				t11.setText("");
+				t12.setText("");
+				t13.setText("");
+				t14.setText("");
+				t15.setText("");
 				
 			}
 		});
@@ -229,22 +286,6 @@ public class GoldenPointGame {
 				s14.setText(String.valueOf(0));
 				s15.setText(String.valueOf(0));
 				
-				t1.setText("");
-				t2.setText("");
-				t3.setText("");
-				t4.setText("");
-				t5.setText("");
-				t6.setText("");
-				t7.setText("");
-				t8.setText("");
-				t9.setText("");
-				t10.setText("");
-				t11.setText("");
-				t12.setText("");
-				t13.setText("");
-				t14.setText("");
-				t15.setText("");
-				
 				
 				
 			}
@@ -258,6 +299,14 @@ public class GoldenPointGame {
 	public static void main(String args[]) {
 		new GoldenPointGame();
 }
+	public boolean isNumeric(String str){ 
+		   Pattern pattern = Pattern.compile("[0-9]*"); 
+		   Matcher isNum = pattern.matcher(str);
+		   if( !isNum.matches() ){
+		       return false; 
+		   } 
+		   return true; 
+		}
 
 }
 
