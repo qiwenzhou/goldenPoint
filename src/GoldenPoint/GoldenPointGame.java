@@ -1,4 +1,5 @@
 package GoldenPoint;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +32,8 @@ public class GoldenPointGame {
 		jlScore = new JLabel("分数：",JLabel.CENTER);
 		jlText = new JLabel("输入：",JLabel.CENTER);
 		jl.setFont(new   java.awt.Font("Dialog",   1,   20));
-		
+	
+	        
 		jf.getContentPane().setLayout(new GridLayout(5,0));
 		jf.add(jl);
 		jf.add(GPanel);
